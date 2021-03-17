@@ -30,7 +30,7 @@ module.exports = function(target, source, options = defaultConfig) {
 
   // source操作
   if (sourceType === TYPE.STRING && source.startsWith('{')) {
-    const temp = tryParse(target);
+    const temp = tryParse(source);
     if (getType(temp) === TYPE.OBJECT) {
       sourceObj = temp;
     }

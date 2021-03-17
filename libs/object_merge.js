@@ -3,28 +3,43 @@ const TYPE = require('../constants/type');
 const { isConstant, isMergeable } = require('./check_type');
 const arrayMerge = require('./array_merge');
 
+/**
+ * 对象合并
+ * @param {any} target - 目标对象
+ * @param {any} source - 源对象
+ * @param {any} options - 配置参数
+ * @returns
+ */
 function objectMerge(target, source, options) {
   const { mixAttr = true } = options;
   const targetKeys = Object.keys(target);
   const sourceKeys = Object.keys(source);
-  const keys = [...targetKeys, ...sourceKeys];
-  console.log('keys = ', keys);
+  const keys = [...targetKeys];
+
+  // 键名去重
+  for (let i = 0; i < sourceKeys.length; i++) {
+    const key = sourceKeys[i];
+    if (targetKeys.includes(key)) {
+      continue;
+    }
+    keys.push(key);
+  }
+
   const finalObj = {};
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    console.log(target[key], isConstant(target[key]));
     if (isConstant(target[key])) {
-      console.log('1');
       if (getType(target[key]) !== TYPE.UNDEFINED) {
-        console.log('12');
         finalObj[key] = target[key];
         continue;
       }
 
       if (mixAttr) {
-        console.log('13');
-
         finalObj[key] = source[key];
+        if (isMergeable(source[key])) {
+          finalObj[key] = JSON.parse(JSON.stringify(source[key]));
+        }
+        continue;
       }
     }
 
@@ -40,11 +55,6 @@ function objectMerge(target, source, options) {
 
     if (isMergeable(target[key])) {
       finalObj[key] = JSON.parse(JSON.stringify(target[key]));
-      continue;
-    }
-
-    if (isMergeable(source[key])) {
-      finalObj[key] = JSON.parse(JSON.stringify(source[key]));
       continue;
     }
   }

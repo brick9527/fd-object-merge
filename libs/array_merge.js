@@ -6,7 +6,8 @@
  * @returns
  */
 module.exports = function(target, source, options) {
-  const { array: { isConcat = true } } = options;
+  const { array = {} } = options;
+  const { isConcat = true } = array;
   if (isConcat) {
     return [...target, ...source];
   }
