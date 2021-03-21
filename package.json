@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brick9527/fd-object-merge.git"
+    "url": "git+https://github.com/brick9527/object-merge.git"
   },
   "keywords": [
     "deep merge",
@@ -33,7 +33,7 @@
   "author": "brick9527",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brick9527/fd-object-merge/issues"
+    "url": "https://github.com/brick9527/object-merge/issues"
   },
-  "homepage": "https://github.com/brick9527/fd-object-merge#readme"
+  "homepage": "https://github.com/brick9527/object-merge#readme"
 }
