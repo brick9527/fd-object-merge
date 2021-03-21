@@ -10,4 +10,5 @@ module.exports = {
   DATE: 'Date',
   REGEXP: 'RegExp',
   ERROR: 'Error',
+  SYMBOL: 'Symbol',
 };

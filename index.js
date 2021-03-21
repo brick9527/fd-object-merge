@@ -13,7 +13,7 @@ const defaultConfig = require('./config/defaut');
  * @param {any} options - 配置
  * @returns
  */
-module.exports = function(target, source, options = defaultConfig) {
+module.exports = function(target, source = {}, options = defaultConfig) {
   const targetType = getType(target);
   const sourceType = getType(source);
 

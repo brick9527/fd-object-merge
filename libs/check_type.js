@@ -8,7 +8,18 @@ const isMergeable = function(argv) {
 
 const isConstant = function(argv) {
   const type = getType(argv);
-  return [TYPE.BOOLEAN, TYPE.DATE, TYPE.ERROR, TYPE.NUMBER, TYPE.STRING, TYPE.UNDEFINED, TYPE.NULL, TYPE.REGEXP, TYPE.FUNCTION].includes(type);
+  return [
+    TYPE.BOOLEAN,
+    TYPE.DATE,
+    TYPE.ERROR,
+    TYPE.NUMBER,
+    TYPE.STRING,
+    TYPE.UNDEFINED,
+    TYPE.NULL,
+    TYPE.REGEXP,
+    TYPE.FUNCTION,
+    TYPE.SYMBOL,
+  ].includes(type);
 };
 
 module.exports = {

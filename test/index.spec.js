@@ -44,6 +44,35 @@ describe('集成测试，常量合并', () => {
       });
     }
   }
+
+  it('Infinite常量合并', () => {
+    const targetObj = {};
+
+    const sourceObj = {
+      num: Infinity,
+    };
+
+    const result = objectMerge(targetObj, sourceObj);
+
+    assert.deepStrictEqual(result.num, Infinity);
+  });
+
+  // 目前该测试无法通过，需要解决JSON.stringify的问题
+  // it('包含Infinite的对象合并', () => {
+  //   const targetObj = {};
+
+  //   const sourceObj = {
+  //     numInfo: {
+  //       type: 'number',
+  //       value: Infinity,
+  //     },
+  //   };
+
+  //   const result = objectMerge(targetObj, sourceObj);
+
+  //   console.log(result.numInfo);
+  //   assert.deepStrictEqual(result.numInfo.value, Infinity);
+  // });
 });
 
 describe('集成测试，默认配置', () => {
