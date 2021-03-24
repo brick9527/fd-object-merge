@@ -57,22 +57,20 @@ describe('集成测试，常量合并', () => {
     assert.deepStrictEqual(result.num, Infinity);
   });
 
-  // 目前该测试无法通过，需要解决JSON.stringify的问题
-  // it('包含Infinite的对象合并', () => {
-  //   const targetObj = {};
+  it('包含Infinite的对象合并', () => {
+    const targetObj = {};
 
-  //   const sourceObj = {
-  //     numInfo: {
-  //       type: 'number',
-  //       value: Infinity,
-  //     },
-  //   };
+    const sourceObj = {
+      numInfo: {
+        type: 'number',
+        value: Infinity,
+      },
+    };
 
-  //   const result = objectMerge(targetObj, sourceObj);
+    const result = objectMerge(targetObj, sourceObj);
 
-  //   console.log(result.numInfo);
-  //   assert.deepStrictEqual(result.numInfo.value, Infinity);
-  // });
+    assert.deepStrictEqual(result.numInfo.value, Infinity);
+  });
 });
 
 describe('集成测试，默认配置', () => {
