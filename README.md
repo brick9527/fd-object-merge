@@ -1,3 +1,4 @@
+[![Build Status](https://www.travis-ci.org/brick9527/object-merge.svg?branch=master)](https://www.travis-ci.org/brick9527/object-merge)
 # 简介（Summary）
 
 `Object Merge`是一个用于JS对象合并的工具库，包含数组和对象的合并，实现对象间的深拷贝。
