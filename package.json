@@ -8,6 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "codecov": "^3.8.1",
     "eslint": "^7.22.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -19,7 +20,7 @@
   "scripts": {
     "test": "node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
     "test:cov": "node_modules/.bin/nyc --reporter=text node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
-    "report-coverage": "node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && ls && codecov"
+    "report-coverage": "node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && node_modules/.bin/codecov -f coverage.lcov"
   },
   "repository": {
     "type": "git",
