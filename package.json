@@ -21,6 +21,7 @@
     "test": "node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
     "test:cov": "node_modules/.bin/nyc --reporter=text --report-dir ./ node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
     "report-coverage": "node_modules/.bin/nyc report --report-dir ./ --reporter=text-lcov > ./coverage.lcov && node_modules/.bin/codecov -f ./coverage.lcov",
+    "report-coverage1": "node_modules/.bin/nyc report --report-dir ./ --reporter=text-lcov > ./coverage.lcov",
     "ls": "ls"
   },
   "repository": {
