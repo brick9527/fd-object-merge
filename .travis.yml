@@ -5,6 +5,8 @@ node_js:
   - 12
   - 14
 
+before_install:
+  - npm install -g codecov
 install:
   - npm i
 
@@ -13,3 +15,5 @@ cache:
 
 script:
   - npm run test:cov
+  - istanbul cover ./node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js --reporter lcovonly -- -R spec
+  - codecov

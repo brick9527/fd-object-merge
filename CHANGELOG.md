@@ -35,4 +35,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 添加更全面的测试用例，增加对更复杂对象的测试
 - 添加自动生成测试用例的代码，以此替换穷举测试
+- `README.md`添加测试覆盖率
 
