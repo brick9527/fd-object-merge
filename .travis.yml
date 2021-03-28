@@ -12,7 +12,7 @@ install:
 cache: 
   npm: true
 
-script:
-  - npm run test
-  - npm run ls
-  - npm run report-coverage
+jobs:
+  include:
+    - stage: test_cov
+      script: ./scripts/test_cov.sh
