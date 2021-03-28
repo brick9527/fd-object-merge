@@ -6,3 +6,5 @@ ls
 
 npm run report-coverage
 
+echo "$CODECOV_TOKEN"
+

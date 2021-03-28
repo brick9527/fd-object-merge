@@ -20,8 +20,7 @@
   "scripts": {
     "test": "node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
     "test:cov": "node_modules/.bin/nyc --reporter=text node_modules/.bin/mocha test/*.spec.js test/**/*.sepc.js",
-    "report-coverage": "node_modules/.bin/nyc report --reporter=text-lcov > ./coverage.lcov && node_modules/.bin/codecov",
-    "ls": "ls"
+    "report-coverage": "node_modules/.bin/nyc report --reporter=text-lcov > ./coverage.lcov && node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
