@@ -1,3 +1,4 @@
+dist: xenial
 language: node_js
 
 node_js:
@@ -13,4 +14,5 @@ cache:
 
 script:
   - npm run test
+  - npm run ls
   - npm run report-coverage
