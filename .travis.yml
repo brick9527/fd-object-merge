@@ -15,4 +15,6 @@ cache:
 jobs:
   include:
     - stage: test_cov
-      script: ./scripts/test_cov.sh
+      script: 
+      - chmod +x ./scripts/test_cov.sh
+      - sh ./scripts/test_cov.sh
