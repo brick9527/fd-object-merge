@@ -508,3 +508,74 @@ describe('集成测试，超出target属性范围的不合并', () => {
     assert.deepStrictEqual(result.info.class.toString(), [...target.info.class, ...source.info.class].toString());
   });
 });
+
+describe('集成测试补充', () => {
+  it('target属性为undefined，source属性为数组', () => {
+    const target = {};
+    const source = {
+      a: [4, 5, 6],
+    };
+
+    const result = objectMerge(target, source);
+
+    assert.deepStrictEqual(result.a.toString(), source.a.toString());
+  });
+
+  it('target属性为undefined，source属性的子属性为对象', () => {
+    const target = {};
+    const source = {
+      a: {
+        child: 'hello world',
+        info: {
+          hobby: ['movie'],
+        },
+      },
+    };
+
+    const result = objectMerge(target, source);
+
+    assert.deepStrictEqual(result.a.child, source.a.child);
+  });
+
+  it('target属性为undefined，source属性为Symbol', () => {
+    const target = {};
+    const source = {
+      a: Symbol('123'),
+    };
+
+    const result = objectMerge(target, source);
+
+    assert.deepStrictEqual(result.a.toString(), source.a.toString());
+    assert.deepStrictEqual(result.a.description, source.a.description);
+  });
+
+  it('target属性为Array，source属性为任意', () => {
+    const target = {
+      a: [1, 2, 3],
+    };
+    const source = {
+      a: Symbol('123'),
+    };
+
+    const result = objectMerge(target, source);
+
+    assert.deepStrictEqual(result.a.toString(), target.a.toString());
+  });
+
+  it('target属性的子属性为object，source属性为任意', () => {
+    const target = {
+      a: {
+        info: {
+          hobby: ['basketball'],
+        },
+      },
+    };
+    const source = {
+      a: Symbol('123'),
+    };
+
+    const result = objectMerge(target, source);
+
+    assert.deepStrictEqual(result.a.info.hobby.toString(), target.a.info.hobby.toString());
+  });
+});

@@ -2,6 +2,7 @@ const getType = require('./get_type');
 const TYPE = require('../constants/type');
 const { isConstant, isMergeable } = require('./check_type');
 const arrayMerge = require('./array_merge');
+const { getUniqArray } = require('./utils');
 
 /**
  * 对象合并
@@ -14,16 +15,9 @@ function objectMerge(target = {}, source = {}, options = {}) {
   const { mixAttr = true } = options;
   const targetKeys = Object.keys(target);
   const sourceKeys = Object.keys(source);
-  const keys = [...targetKeys];
 
-  // 键名去重
-  for (let i = 0; i < sourceKeys.length; i++) {
-    const key = sourceKeys[i];
-    if (targetKeys.includes(key)) {
-      continue;
-    }
-    keys.push(key);
-  }
+  // 合并两个对象的第一层key，并取唯一值
+  const keys = getUniqArray(targetKeys, sourceKeys);
 
   const finalObj = {};
   for (let i = 0; i < keys.length; i++) {
@@ -47,9 +41,9 @@ function objectMerge(target = {}, source = {}, options = {}) {
 
         if (sourceType === TYPE.OBJECT) {
           finalObj[key] = Object.assign({}, source[key]);
-          const sourceKeys = Object.keys(source[key]);
-          for (let i = 0; i < sourceKeys.length; i++) {
-            const sourceKey = sourceKeys[i];
+          const sourceChildKeys = Object.keys(source[key]);
+          for (let i = 0; i < sourceChildKeys.length; i++) {
+            const sourceKey = sourceChildKeys[i];
             if (isMergeable(source[key][sourceKey])) {
               finalObj[key][sourceKey] = objectMerge({}, source[key][sourceKey], options);
             }
