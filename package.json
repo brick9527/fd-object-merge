@@ -1,6 +1,6 @@
 {
   "name": "fd-object-merge",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a tool for merging object",
   "main": "index.js",
   "directories": {
