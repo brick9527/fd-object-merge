@@ -1,8 +1,16 @@
 [![Build Status](https://www.travis-ci.org/brick9527/object-merge.svg?branch=master)](https://www.travis-ci.org/brick9527/object-merge)
 [![codecov](https://codecov.io/gh/brick9527/object-merge/branch/master/graph/badge.svg?token=ZKNHWFUNIS)](https://codecov.io/gh/brick9527/object-merge)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/brick9527/object-merge)
+![npm bundle size](https://img.shields.io/bundlephobia/min/fd-object-merge)
+![NPM](https://img.shields.io/npm/l/fd-object-merge)
+![npm](https://img.shields.io/npm/v/fd-object-merge)
 # 简介（Summary）
 
 `Object Merge`是一个用于JS对象合并的工具库，包含数组和对象的合并，实现对象间的深拷贝。
+
+尤其是用于处理标准配置与本地配置的合并。
+
+支持Node版本：>= 12.X
 # 特性（Feature）
 
 - 轻量级

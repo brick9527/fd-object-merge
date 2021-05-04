@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 完善测试用例，达到100%测试覆盖率
 - 调整CI
+- 完善README
 
 ## [Released]
 
