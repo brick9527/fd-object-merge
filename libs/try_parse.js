@@ -8,7 +8,7 @@ module.exports = function(str) {
   try {
     targetObj = JSON.parse(str);
   } catch (err) {
-    targetObj = str;
+    targetObj = null;
   }
   return targetObj;
 };
